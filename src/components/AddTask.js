@@ -9,8 +9,29 @@ const AddTask = () => {
 	};
 	//adds text,completed and id properties to tasks state on click of add button
 	const handleAdd = (e) => {
+		var flag = false;
 		e.preventDefault();
-		setTasks([ ...tasks, { text: input, completed: false, id: Math.random() * 1000 } ]);
+		//adding text after editing
+		if (tasks.length > 0) {
+			setTasks(
+				tasks.map((item) => {
+					if (item.edited === true) {
+						flag = true;
+						return {
+							...item,
+							text: input,
+							edited: false
+						};
+					}
+					return item;
+				})
+			);
+		}
+		//adding text for the first time
+		if (flag === false)
+			setTasks([ ...tasks, { text: input, completed: false, edited: false, id: Math.random() * 1000 } ]);
+
+		flag = false;
 		setInput('');
 	};
 	//sets the option value selected to option state

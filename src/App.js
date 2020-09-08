@@ -9,12 +9,7 @@ const App = () => {
 	const [ tasks, setTasks ] = useState([]);
 	const [ option, setOption ] = useState('all');
 	const [ filteredTasks, setFilteredTasks ] = useState([]);
-	useEffect(
-		() => {
-			filterHandler();
-		},
-		[ tasks, option ]
-	);
+
 	//filtering tasks on the basis of option(all,completed,not completed) selected
 	const filterHandler = () => {
 		switch (option) {
@@ -28,7 +23,12 @@ const App = () => {
 				setFilteredTasks(tasks);
 		}
 	};
-
+	useEffect(
+		() => {
+			filterHandler();
+		},
+		[ tasks, option ]
+	);
 	return (
 		<div className="App">
 			<UserContext.Provider value={{ input, setInput, tasks, setTasks, filteredTasks, setOption }}>
