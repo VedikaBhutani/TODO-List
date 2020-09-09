@@ -9,6 +9,8 @@ const App = () => {
 	const [ tasks, setTasks ] = useState([]);
 	const [ option, setOption ] = useState('all');
 	const [ filteredTasks, setFilteredTasks ] = useState([]);
+	const [ toggle, setToggle ] = useState(false);
+	const [ inputError, setInputError ] = useState('');
 
 	//filtering tasks on the basis of option(all,completed,not completed) selected
 	const filterHandler = () => {
@@ -31,7 +33,20 @@ const App = () => {
 	);
 	return (
 		<div className="App">
-			<UserContext.Provider value={{ input, setInput, tasks, setTasks, filteredTasks, setOption }}>
+			<UserContext.Provider
+				value={{
+					input,
+					setInput,
+					tasks,
+					setTasks,
+					filteredTasks,
+					setOption,
+					toggle,
+					setToggle,
+					inputError,
+					setInputError
+				}}
+			>
 				<AddTask />
 				<ShowTasks />
 			</UserContext.Provider>
