@@ -1,10 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { UserContext } from '../App';
 import '../App.css';
 
 const AddTask = () => {
-	const { input, setInput, tasks, setTasks, setOption, toggle, setToggle, inputError, setInputError } = useContext(
-		UserContext
+	const { input, setInput, tasks, setTasks, toggle, setToggle, inputError, setInputError } = useContext(UserContext);
+	//to avoid overlapping label when editing text
+	useEffect(
+		() => {
+			const M = window.M;
+			M.updateTextFields();
+		},
+		[ input ]
 	);
 
 	//takes task entered and sets it to the input state
@@ -38,6 +44,7 @@ const AddTask = () => {
 					})
 				);
 			}
+
 			//adding text for the first time
 			if (flag === false)
 				setTasks([ ...tasks, { text: input, completed: false, edited: false, id: Math.random() * 1000 } ]);
@@ -45,11 +52,6 @@ const AddTask = () => {
 			flag = false;
 			setInput('');
 		}
-	};
-
-	//sets the option value selected to option state
-	const handleSelection = (e) => {
-		setOption(e.target.value);
 	};
 
 	return (
@@ -75,14 +77,6 @@ const AddTask = () => {
 						<button className="btn">
 							<i className="material-icons">add</i>
 						</button>
-					</div>
-					<div className="col l2 s2 m2" />
-					<div className="col l4 s4 m4" style={{ paddingTop: '20px' }}>
-						<select className="browser-default" onChange={handleSelection}>
-							<option value="all">All</option>
-							<option value="completed">Completed</option>
-							<option value="not_completed">Not Completed</option>
-						</select>
 					</div>
 				</div>
 			</form>

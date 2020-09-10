@@ -2,7 +2,7 @@ import React, { useState, createContext, useEffect } from 'react';
 import './App.css';
 import AddTask from './components/AddTask';
 import ShowTasks from './components/ShowTasks';
-
+import Navbar from './components/Navbar';
 export const UserContext = createContext();
 const App = () => {
 	const [ input, setInput ] = useState('');
@@ -11,6 +11,15 @@ const App = () => {
 	const [ filteredTasks, setFilteredTasks ] = useState([]);
 	const [ toggle, setToggle ] = useState(false);
 	const [ inputError, setInputError ] = useState('');
+	//for initializing materialize css select
+	useEffect(() => {
+		const M = window.M;
+		M.AutoInit();
+		// document.addEventListener('DOMContentLoaded', function() {
+		// 	var elems = document.querySelectorAll('select');
+		// 	M.FormSelect.init(elems, {});
+		// });
+	}, []);
 
 	//filtering tasks on the basis of option(all,completed,not completed) selected
 	const filterHandler = () => {
@@ -47,6 +56,7 @@ const App = () => {
 					setInputError
 				}}
 			>
+				<Navbar />
 				<AddTask />
 				<ShowTasks />
 			</UserContext.Provider>

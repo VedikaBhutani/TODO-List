@@ -15,7 +15,9 @@
 	animation: shake .1s linear;
 	animation-iteration-count: 3;
 }
-
+.select-dropdown {
+	color: #ffffff;
+}
 @keyframes shake {
 	0% {
 		left: -5px;
