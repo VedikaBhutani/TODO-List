@@ -8,7 +8,8 @@
 }
 .completed {
 	text-decoration: line-through;
-	opacity: 0.5;
+	opacity: 1;
+	text-decoration-color: white;
 }
 .error {
 	position: relative;
@@ -17,6 +18,36 @@
 }
 .select-dropdown {
 	color: #ffffff;
+}
+.nav-wrapper {
+	background-color: #4e342e;
+}
+
+.label-task {
+	word-wrap: break-word;
+}
+.scroll-box {
+	overflow-y: auto;
+	height: 400px;
+	padding: 1rem;
+}
+.xyz {
+	padding: 0;
+}
+.valign-center {
+	display: inline-flex;
+	vertical-align: middle;
+	align-items: center;
+}
+i.icon-teal {
+	color: teal;
+}
+.modal {
+	width: 30% !important;
+	height: 25% !important;
+}
+nav ul a:hover {
+	background-color: rgba(0, 0, 0, 0) !important;
 }
 @keyframes shake {
 	0% {
