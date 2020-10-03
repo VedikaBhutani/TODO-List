@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Frontend TODO - List React Application built using ReactJS. It performs basic operations of adding, deleting and modifying the tasks. User can also star the important tasks and cross the completed tasks. Further the tasks can be filtered on the basis of checked and starred status. This applications uses Session storage for storing the task data.
+
 ## Available Scripts
 
 In the project directory, you can run:
